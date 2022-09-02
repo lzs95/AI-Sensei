@@ -58,5 +58,4 @@ def validate_prompt(prompt: str):
 
 if __name__=="__main__":
     main()
-    
-    
+
