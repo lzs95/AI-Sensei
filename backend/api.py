@@ -1,13 +1,14 @@
 from typing import Union
 from AIpal import generate_response
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 
 app = FastAPI()
 
 
 @app.get("/generate_response")
 async def generate_response_api(prompt:str):
+    validate_input_prompt(prompt)
     response = generate_response(prompt)
     return { prompt : response}
 
@@ -15,6 +16,11 @@ async def generate_response_api(prompt:str):
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: Union[str, None] = None):
     return {"item_id": item_id, "q": q}
+
+
+def validate_input_prompt(prompt:str):
+    if len(prompt) > 20:
+        raise HTTPException(status_code=400, detail="Input Error: Must be a single word with less than 20 characters")
 
 
 # uvicorn api:app --reload
