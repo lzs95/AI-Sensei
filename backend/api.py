@@ -1,9 +1,11 @@
 from typing import Union
 from AIpal import generate_response
-
+from mangum import Mangum
 from fastapi import FastAPI, HTTPException
 
 app = FastAPI()
+#Lambda function reroute
+handler = Mangum(app)
 
 
 @app.get("/generate_response")
