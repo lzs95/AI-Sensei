@@ -19,3 +19,5 @@ RUN pip install -r requirements.txt -t ./python
 # Zip it up for deployment.
 RUN zip -r layer.zip ./python/
 ENTRYPOINT ["/bin/bash", "-l"]
+
+
