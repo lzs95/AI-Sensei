@@ -8,4 +8,4 @@ node_modules
 .cdk.staging
 cdk.out
 
-.zip
+*.zip

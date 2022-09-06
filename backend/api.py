@@ -2,6 +2,7 @@ from typing import Union
 from AIpal import generate_response
 from mangum import Mangum
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 #Lambda function reroute

@@ -2,3 +2,4 @@ openai
 fastapi
 magnum
 requests
+python-dotenv
