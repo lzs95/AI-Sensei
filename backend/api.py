@@ -9,6 +9,16 @@ app = FastAPI()
 handler = Mangum(app)
 
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_headers = ["*"],  
+    allow_methods = ["*"],
+)
+
+
+
 @app.get("/generate_response")
 async def generate_response_api(prompt:str):
     validate_input_prompt(prompt)
