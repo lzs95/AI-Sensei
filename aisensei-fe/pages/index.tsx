@@ -3,7 +3,8 @@ import { FormEvent, useState } from "react";
 
 const Home: NextPage = () => {
   const [userInput, setUserInput] = useState("");
-
+  const [words, setWords] = useState([]);
+  const [userInputText, setUserInputText] = useState("");
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(`Value = ${userInput}`);
@@ -11,7 +12,10 @@ const Home: NextPage = () => {
       `https://0sox7ioyk4.execute-api.us-east-1.amazonaws.com/prod/generate_response?prompt=${userInput}`
     )
       .then((res) => res.json())
-      .then(console.log);
+      .then((res) => {
+        setUserInputText(userInput);
+        setWords(res[`${userInput}`]);
+      });
   };
 
   return (
@@ -30,6 +34,9 @@ const Home: NextPage = () => {
         />
         <button className=" bg-orange-400">Submit</button>
       </form>
+      <p>
+        {userInputText}: {words.join(" ,")}
+      </p>
     </div>
   );
 };
