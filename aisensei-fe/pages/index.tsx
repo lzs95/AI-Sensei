@@ -7,6 +7,7 @@ const Home: NextPage = () => {
   const [userInput, setUserInput] = useState("");
   const [words, setWords] = useState([]);
   const [userInputText, setUserInputText] = useState("");
+  const [showResult, setShowResult] = useState(false);
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(`Value = ${userInput}`);
@@ -18,6 +19,7 @@ const Home: NextPage = () => {
       .then((res) => {
         setUserInputText(userInput);
         setWords(res[`${userInput}`]);
+        setShowResult(true);
       });
   };
 
@@ -29,7 +31,7 @@ const Home: NextPage = () => {
         setUserInput={setUserInput}
         handleSubmit={handleSubmit}
       />
-      <Results words={words} userInputText={userInputText} />
+      {showResult && <Results words={words} userInputText={userInputText} />}
     </div>
   );
 };
