@@ -11,10 +11,12 @@ const Results: React.FC<ResultProps> = (props) => {
   console.log(props.words);
 
   const displyResultCards = () => {
-    return props.words.map((element) => {
+    return props.words?.map((element, index) => {
       return (
-        // eslint-disable-next-line react/jsx-key
-        <span className="flex bg-slate-100 font-bold text-xl  items-center justify-center h-44 w-44 rounded-md shadow-md shadow-slate-500 m-2 select-none">
+        <span
+          key={index}
+          className="flex bg-slate-100 font-bold text-xl  items-center justify-center h-44 w-44 rounded-md shadow-md shadow-slate-500 m-2 select-none"
+        >
           {element}
         </span>
       );
