@@ -4,6 +4,7 @@ interface FormProps {
   userInput: string;
   setUserInput: any;
   handleSubmit: any;
+  loading: boolean;
 }
 
 export const UserForm: React.FC<FormProps> = (props) => {
@@ -19,7 +20,12 @@ export const UserForm: React.FC<FormProps> = (props) => {
         placeholder="Car"
         required
       />
-      <button className=" bg-orange-400" onClick={props.handleSubmit}>
+      <button
+        // !props.userInput
+        disabled={!props.userInput || props.loading}
+        className=" bg-orange-400 disabled:opacity-75 "
+        onClick={props.handleSubmit}
+      >
         Submit
       </button>
     </div>
