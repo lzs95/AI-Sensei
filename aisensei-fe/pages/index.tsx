@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { FormEvent, useState } from "react";
-import { UserForm } from "./form";
-import { Results } from "./results";
+import Form from "./form";
+import Results from "./results";
 
 const Home: NextPage = () => {
   const [userInput, setUserInput] = useState("");
@@ -43,7 +43,7 @@ const Home: NextPage = () => {
     <div className="flex flex-col items-center w-screen h-screen">
       <h1 className="text-3xl font-bold underline">AiSensei</h1>
       {!showResult ? (
-        <UserForm
+        <Form
           userInput={userInput}
           setUserInput={setUserInput}
           handleSubmit={handleSubmit}

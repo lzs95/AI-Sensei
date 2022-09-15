@@ -6,7 +6,7 @@ interface ResultProps {
   onReturn: any;
 }
 
-export const Results: React.FC<ResultProps> = (props) => {
+const Results: React.FC<ResultProps> = (props) => {
   console.log(props.userInputText);
   console.log(props.words);
 
@@ -38,3 +38,5 @@ export const Results: React.FC<ResultProps> = (props) => {
     </div>
   );
 };
+
+export default Results;

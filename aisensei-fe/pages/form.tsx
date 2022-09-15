@@ -7,7 +7,7 @@ interface FormProps {
   loading: boolean;
 }
 
-export const UserForm: React.FC<FormProps> = (props) => {
+const Form: React.FC<FormProps> = (props) => {
   return (
     <div className="flex flex-col">
       <h2>Please Input a word to translate to japanese.</h2>
@@ -31,3 +31,5 @@ export const UserForm: React.FC<FormProps> = (props) => {
     </div>
   );
 };
+
+export default Form;
