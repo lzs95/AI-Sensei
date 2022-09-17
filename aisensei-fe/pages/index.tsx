@@ -40,27 +40,34 @@ const Home: NextPage = () => {
   };
 
   return (
-    <div className="flex h-screen bg-slate-50">
-      <div className=" max-w-md m-auto p-5  align-middle bg-rose-700 shadow-lg shadow-slate-400 rounded-lg w-3/6 h-96">
-        <h1 className="flex justify-center mt-3">This is a logo</h1>
-        <h1 className="flex justify-center text-3xl text-white font-bold underline my-5">
-          AiSensei
-        </h1>
-        {!showResult ? (
-          <Form
-            userInput={userInput}
-            setUserInput={setUserInput}
-            handleSubmit={handleSubmit}
-            loading={loading}
-          />
-        ) : (
-          <Results
-            words={words}
-            userInputText={userInputText}
-            onReturn={onReturn}
-          />
-        )}
-        {err && <p>Error</p>}
+    <div className="flex h-screen  bg-slate-50">
+      <div className="max-w-md w-96 m-auto">
+        <div className="flex flex-col bg-rose-700 shadow-lg shadow-slate-400 rounded-lg  h-96 p-4">
+          <h1 className="text-center bg-slate-100 w-36 h-24">
+            This is a logo placeholder
+          </h1>
+          <h1 className="text-center text-3xl text-white font-bold  mt-2 mb-8">
+            AI-SenSei
+          </h1>
+
+          <div className="flex justify-center flex-col mt-9">
+            {!showResult ? (
+              <Form
+                userInput={userInput}
+                setUserInput={setUserInput}
+                handleSubmit={handleSubmit}
+                loading={loading}
+              />
+            ) : (
+              <Results
+                words={words}
+                userInputText={userInputText}
+                onReturn={onReturn}
+              />
+            )}
+            {err && <p>Error</p>}
+          </div>
+        </div>
       </div>
     </div>
   );

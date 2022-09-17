@@ -15,7 +15,7 @@ const Results: React.FC<ResultProps> = (props) => {
       return (
         <span
           key={index}
-          className="flex bg-slate-100 font-bold text-xl  items-center justify-center h-44 w-44 rounded-md shadow-md shadow-slate-500 m-2 select-none"
+          className="flex bg-slate-100 font-bold text-xl  items-center justify-center h-12 w-12 rounded-md shadow-md shadow-slate-500 m-2 select-none"
         >
           {element}
         </span>
@@ -26,7 +26,7 @@ const Results: React.FC<ResultProps> = (props) => {
   return (
     <div className="flex flex-col items-center w-full h-full ">
       {/* <p>{props.words.join(" ,")}</p> */}
-      <div className=" flex flex-row flex-wrap w-96 h-96 bg-slate-200">
+      <div className=" flex flex-row flex-wrap w-96  bg-slate-200  justify-center">
         <p className="flex bg-red-600 font-bold text-xl  items-center justify-center w-full h-1/6 rounded-md shadow-md shadow-slate-500 m-2 text-white">
           {props.userInputText}
         </p>
