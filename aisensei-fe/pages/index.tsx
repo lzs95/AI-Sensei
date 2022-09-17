@@ -40,23 +40,28 @@ const Home: NextPage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center w-screen h-screen">
-      <h1 className="text-3xl font-bold underline">AiSensei</h1>
-      {!showResult ? (
-        <Form
-          userInput={userInput}
-          setUserInput={setUserInput}
-          handleSubmit={handleSubmit}
-          loading={loading}
-        />
-      ) : (
-        <Results
-          words={words}
-          userInputText={userInputText}
-          onReturn={onReturn}
-        />
-      )}
-      {err && <p>Error</p>}
+    <div className="flex h-screen bg-slate-50">
+      <div className=" max-w-md m-auto p-5  align-middle bg-rose-700 shadow-lg shadow-slate-400 rounded-lg w-3/6 h-96">
+        <h1 className="flex justify-center mt-3">This is a logo</h1>
+        <h1 className="flex justify-center text-3xl text-white font-bold underline my-5">
+          AiSensei
+        </h1>
+        {!showResult ? (
+          <Form
+            userInput={userInput}
+            setUserInput={setUserInput}
+            handleSubmit={handleSubmit}
+            loading={loading}
+          />
+        ) : (
+          <Results
+            words={words}
+            userInputText={userInputText}
+            onReturn={onReturn}
+          />
+        )}
+        {err && <p>Error</p>}
+      </div>
     </div>
   );
 };
