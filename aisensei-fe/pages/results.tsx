@@ -15,7 +15,7 @@ const Results: React.FC<ResultProps> = (props) => {
       return (
         <span
           key={index}
-          className="flex bg-slate-100 font-bold text-xl  items-center justify-center h-12 w-12 rounded-md shadow-md shadow-slate-500 m-2 select-none"
+          className="flex bg-slate-50 font-bold text-xl  items-center justify-center h-28 w-2/5 rounded-md shadow-md shadow-slate-500 m-3 select-none"
         >
           {element}
         </span>
@@ -24,20 +24,25 @@ const Results: React.FC<ResultProps> = (props) => {
   };
 
   return (
-    <div className="flex flex-col items-center w-full h-full ">
-      {/* <p>{props.words.join(" ,")}</p> */}
-      <div className=" flex flex-row flex-wrap w-96  bg-slate-200  justify-center">
-        <p className="flex bg-red-600 font-bold text-xl  items-center justify-center w-full h-1/6 rounded-md shadow-md shadow-slate-500 m-2 text-white">
-          {props.userInputText}
-        </p>
-        <div className="flex flex-row flex-wrap bg-blue-300 font-bold text-xl items-center justify-center w-full ">
-          {displyResultCards()}
-        </div>
-        <button className=" bg-orange-600 w-52" onClick={props.onReturn}>
-          back
+    <>
+      <p className="flex bg-red-600 font-bold text-xl  justify-center w-full h-1/6 rounded-md shadow-md shadow-slate-500 m-2 text-white">
+        {props.userInputText}
+      </p>
+      <div className="flex flex-row flex-wrap bg-blue-300 font-bold text-xl items-center justify-center w-full mt-5">
+        {displyResultCards()}
+      </div>
+      <div className="flex flex-col items-center  w-full   mt-10">
+        <button className=" bg-slate-50 opacity-60 font-bold text-xl  w-full h-1/6 rounded-md shadow-md shadow-slate-500 m-2 ">
+          Example Sentence (comming soon)
+        </button>
+        <button
+          className=" bg-slate-50 font-bold text-xl  w-full h-1/6 rounded-md shadow-md shadow-slate-500 m-2 "
+          onClick={props.onReturn}
+        >
+          Return
         </button>
       </div>
-    </div>
+    </>
   );
 };
 
