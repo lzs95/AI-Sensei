@@ -18,6 +18,8 @@ const Home: NextPage = () => {
 
     if (!userInput || userInput.length > 20) {
       return setErr(true);
+    } else if (words.length <= 1 && words[0] === "Null") {
+      return setErr(true);
     } else {
       fetch(
         // AWS API

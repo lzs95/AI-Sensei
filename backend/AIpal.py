@@ -22,15 +22,15 @@ def main():
         raise ValueError("Input length must be under 20 characters.")
 
 def generate_response(prompt: str):
-    text_prompt = f"Translate the following word '{prompt}' into Japanese, and return the result exactly like the format of this example: '甲虫., こうちゅう, コウチュウ, kouchuu'"
+    text_prompt = f"{prompt} -> \n\n###\n\n"
 
-    response = openai.Completion.create(model="text-davinci-002", prompt=text_prompt, temperature=0, max_tokens=30)
+    response = openai.Completion.create(model="davinci:ft-personal-2022-09-20-09-37-28", prompt=text_prompt, temperature=0, max_tokens=20)
     response_text = response["choices"][0]["text"]
     
-    result_text = response_text.strip()
-    result_array = result_text.split(",")
+    result_text = response_text.split('\n\n###\n\n', 1)[0].split(",")
+  
     #Remove spaces 
-    result_array = [i.strip() for i in result_array if len(i)>0]
+    result_array = [i.strip(" \n\n###\n\n") for i in result_text if len(i)>0]
     return result_array
 
 

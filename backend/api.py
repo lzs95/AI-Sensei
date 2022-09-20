@@ -26,9 +26,6 @@ async def generate_response_api(prompt:str):
     return { prompt : response}
 
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
 
 
 def validate_input_prompt(prompt:str):
