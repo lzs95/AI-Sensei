@@ -11,7 +11,7 @@ const Form: React.FC<FormProps> = (props) => {
   return (
     <>
       <h2 className="text-white text-center text-lg ">
-        Enter a a word for translation
+        Enter a word for translation
       </h2>
 
       <div className="flex justify-center flex-row mt-4 shadow-md shadow-red-900 rounded-md">
