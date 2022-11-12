@@ -1,6 +1,7 @@
 import os
 import openai
 import argparse
+import re
 from dotenv import load_dotenv
 load_dotenv()
 # Load your API key from an environment variable or secret management service
@@ -24,10 +25,11 @@ def main():
 def generate_response(prompt: str):
     text_prompt = f"{prompt} -> \n\n###\n\n"
 
-    response = openai.Completion.create(model="davinci:ft-personal-2022-11-12-16-27-58", prompt=text_prompt, temperature=0, max_tokens=20)
+    response = openai.Completion.create(model="davinci:ft-personal-2022-11-12-16-27-58", prompt=text_prompt, temperature=0, max_tokens=30)
     response_text = response["choices"][0]["text"]
     
-    result_text = response_text.split('\n\n###\n\n', 1)[0].split(",")
+    result_text = response_text.split('\n', 1)[0].split(",")
+    
   
     #Remove spaces 
     result_array = [i.strip(" \n\n###\n\n") for i in result_text if len(i)>0]
