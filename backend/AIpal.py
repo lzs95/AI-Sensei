@@ -24,7 +24,7 @@ def main():
 def generate_response(prompt: str):
     text_prompt = f"{prompt} -> \n\n###\n\n"
 
-    response = openai.Completion.create(model="davinci:ft-personal-2022-09-20-09-37-28", prompt=text_prompt, temperature=0, max_tokens=20)
+    response = openai.Completion.create(model="davinci:ft-personal-2022-11-12-16-27-58", prompt=text_prompt, temperature=0, max_tokens=20)
     response_text = response["choices"][0]["text"]
     
     result_text = response_text.split('\n\n###\n\n', 1)[0].split(",")
